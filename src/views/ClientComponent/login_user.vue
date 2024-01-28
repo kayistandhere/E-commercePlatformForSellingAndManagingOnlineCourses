@@ -14,9 +14,7 @@
           </div>
           <div class="border border-dark m-2 d-flex justify-content-start">
             <i class="bi bi-facebook px-3 fs-2 custom-color-logo"></i>
-            <button class="btn bg-none" type="button">
-              Tiếp tục bằng tài khoản Facebook
-            </button>
+            <GoogleLogin :callback="callback"/>
           </div>
           <form @submit.prevent="formLogin">
           <div class="border border-dark m-2">
@@ -35,12 +33,14 @@
               </label>
             </div>
           </div>
-        </form>
           <div class="px-3 py-2">
-            <button class="btn w-100 bg-btn rounded-0 text-white fw-bold py-2">
+            <button class="btn w-100 bg-btn rounded-0 text-white fw-bold py-2" type="submit">
               Đăng nhập
             </button>
           </div>
+          
+        </form>
+          
           <div class="pb-2">
             <span class="fs-6 px-2"
               >Hoặc
@@ -53,9 +53,9 @@
             <span class="custom-font-size"
               >Bạn không có tài khoản? Hãy
               <router-link class="text-link fw-bold" :to="'/register'"
-                >đăng ký</router-link
-              >
+                >đăng ký</router-link>
             </span>
+            
           </div>
         </form>
       </div>
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import btn from '../../components/Btn/btn_1.vue'
 import authMixin from "../../mixin/auth.js";
 export default {
   mixins : [authMixin],
@@ -82,7 +83,11 @@ export default {
     };
   },
   setup(){
-    this.formLogin();
+      const callback = (response) => {
+      const userData = decodeCredential(response.credential)
+      console.log("Handle the userData", userData)
+      console.log( "KEY",process.env.VUE_APP_CLIENT_ID_KEY)
+}
   },
   methods: {
     validate() {
@@ -91,7 +96,6 @@ export default {
           email: "",
           password: "",
         };
-
         if (!this.account.email) {
           this.error.email = "Product email is required";
           invalid = false;
@@ -105,12 +109,10 @@ export default {
         }
         return invalid;
       },
-
     isEmail(value) {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
     },
     formLogin(){
-    
     },
     updateMessage() {
       // Kích hoạt mutation để cập nhật thông điệp
@@ -122,8 +124,17 @@ export default {
     },
   },
   onMounted(){
-
+    googleOneTap({ autoLogin: true })
+    .then((response) => {
+      console.log("Handle the response", response)
+    })
+    .catch((error) => {
+      console.log("Handle the error", error)
+    })
   },
+  components: {
+      webBtn1 : btn
+  }
 };
 </script>
 

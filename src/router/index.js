@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import loginUser from '../components/ClientComponent/login_user.vue'
-import registerUser from '../components/ClientComponent/register_user.vue'
-import homePage from '../components/ClientComponent/home_page.vue'
-import courseDetail from '../components/ClientComponent/course_detail.vue'
-import profileEdit from '../components/ClientComponent/profile_edit.vue'
+import loginUser from '../views/ClientComponent/login_user.vue'
+import registerUser from '../views/ClientComponent/register_user.vue'
+import homePage from '../views/ClientComponent/home_page.vue'
+import courseDetail from '../views/ClientComponent/course_detail.vue'
+import profileEdit from '../views/ClientComponent/course_detail.vue'
+import payCourse from '../views/ClientComponent/payment.vue'
 const routes = [
   {
     path: '/',
@@ -29,6 +30,11 @@ const routes = [
     path : '/profileEdit',
     name : 'profileEdit.view',
     component : profileEdit
+  },
+  {
+    path : '/payment',
+    name : 'payment.view',
+    component : payCourse
   },
 
 ]

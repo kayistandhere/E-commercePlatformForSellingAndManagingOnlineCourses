@@ -25,6 +25,9 @@
   .bg-pr{
     background-color: var(--color-Paragraph);
   }
+  .bg-content {
+    background-color: var(--color-content);
+  }
   .text-btn {
     color: var(--color-Button);
   }

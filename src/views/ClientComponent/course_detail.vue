@@ -384,10 +384,11 @@
                 </div>
                
               </div>
-              <div class="col">Column</div>
+              <div class="col"> </div>
               <div class="col">Column</div>
               <div class="col">Column</div>
             </div>
+            
           </section>
           <!-- End col-lg-8 -->
         </div>
@@ -399,7 +400,9 @@
 <script>
 export default {
   name: "course_detail",
-  data() {},
+  data() {
+
+  },
   mounted() {
     let navbar = document.getElementById("navbar");
     window.onscroll = function () {
@@ -432,7 +435,6 @@ export default {
       dropdown[i].addEventListener("click", function () {
         this.classList.toggle("active");
         let dropdownContent = this.nextElementSibling;
-        let iconDropdown = document.getElementsByClassName("bi-caret-down"); 
 
         if (dropdownContent.style.display === "block") {
           dropdownContent.style.display = "none";
@@ -442,6 +444,7 @@ export default {
       });
     }
   },
+
 };
 </script>
 

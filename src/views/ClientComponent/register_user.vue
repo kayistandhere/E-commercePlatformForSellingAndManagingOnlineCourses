@@ -47,7 +47,6 @@
                 <span class="text-decoration-underline">Chính sách về quyền riêng tư</span>.
             </span>
             </div>
-            
             <div class="border-top px-2 py-2 ">
               <span class="custom-font-size">Bạn đã có tài khoản? Hãy <router-link :to="'/'" class="text-link fw-bold">đăng nhập</router-link> </span>
             </div>

@@ -145,11 +145,24 @@
       </div>
      
     </section>
+    <section>
+      <!-- <course-detail :data-to-pass="'Dữ liệu từ Cha đến Con'"></course-detail> -->
+    </section>
   </section>
 </template>
 
 <script>
-
+// import courseDetail from './components/ClientComponent/course_detail.vue';
+  export default {
+    data() {
+    return {
+      dataToPass: 'Dữ liệu từ Cha đến Con 1'
+    };
+  },
+  //   components: {
+  //     courseDetail
+  // }
+  }
 
 </script>
 <style >
